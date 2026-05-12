@@ -75,32 +75,16 @@
 </section>
 
 <div class="modal-overlay" id="how-it-works-modal">
-    <div class="modal">
+    <div class="modal modal--video">
         <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-        <h2 class="modal-title">How Spendly works</h2>
-        <div class="modal-steps">
-            <div class="modal-step">
-                <div class="modal-step-num">1</div>
-                <div class="modal-step-text">
-                    <h3>Create your account</h3>
-                    <p>Sign up for free in seconds — no credit card required.</p>
-                </div>
-            </div>
-            <div class="modal-step">
-                <div class="modal-step-num">2</div>
-                <div class="modal-step-text">
-                    <h3>Log your expenses</h3>
-                    <p>Add any expense with an amount, category, date, and optional note.</p>
-                </div>
-            </div>
-            <div class="modal-step">
-                <div class="modal-step-num">3</div>
-                <div class="modal-step-text">
-                    <h3>Understand your patterns</h3>
-                    <p>See breakdowns by category and month to know exactly where your money goes.</p>
-                </div>
-            </div>
-        </div>
+        <iframe
+            id="how-it-works-video"
+            src=""
+            data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="How Spendly works"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
     </div>
 </div>
 
@@ -136,9 +120,21 @@
 
 {% block scripts %}
 <script>
-    const modal = document.getElementById('how-it-works-modal');
-    document.getElementById('how-it-works-btn').addEventListener('click', () => modal.classList.add('is-open'));
-    document.getElementById('modal-close').addEventListener('click', () => modal.classList.remove('is-open'));
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('is-open'); });
+    const modal  = document.getElementById('how-it-works-modal');
+    const iframe = document.getElementById('how-it-works-video');
+
+    function openModal() {
+        iframe.src = iframe.dataset.src;
+        modal.classList.add('is-open');
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        iframe.src = '';
+    }
+
+    document.getElementById('how-it-works-btn').addEventListener('click', openModal);
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 </script>
 {% endblock %}

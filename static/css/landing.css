@@ -260,3 +260,27 @@
     color: var(--ink-muted);
     line-height: 1.6;
 }
+
+/* Video modal variant */
+.modal--video {
+    max-width: 800px;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.modal--video .modal-close {
+    top: -2.75rem;
+    right: 0;
+    color: #fff;
+    font-size: 1.75rem;
+}
+
+.modal--video .modal-close:hover { color: var(--paper); opacity: 0.8; }
+
+.modal--video iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+}

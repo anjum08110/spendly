@@ -508,6 +508,40 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Prose / legal pages                                                 */
+/* ------------------------------------------------------------------ */
+
+.hero--single {
+    grid-template-columns: 1fr;
+}
+
+.prose-section {
+    padding: 3rem 2rem 5rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.prose-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-top: 2.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.prose-section p,
+.prose-section ul {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+}
+
+.prose-section ul {
+    padding-left: 1.5rem;
+}
+
+/* ------------------------------------------------------------------ */
 /* Responsive                                                          */
 /* ------------------------------------------------------------------ */
 

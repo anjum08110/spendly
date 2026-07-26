@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(\"venv/Scripts/python.exe\" -m pip install flask werkzeug)",
-      "Bash(\"venv/Scripts/python.exe\" app.py)"
+      "Bash(\"venv/Scripts/python.exe\" app.py)",
+      "Bash(python -c \"from database.db import get_db; c=get_db\\(\\); r=c.execute\\('SELECT id, name, email FROM users WHERE id=?', \\(2,\\)\\).fetchone\\(\\); print\\(dict\\(r\\) if r else None\\)\")"
     ]
   }
 }
